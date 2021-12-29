@@ -2,3 +2,4 @@
 .idea
 dev.md
 /pkg/
+/vendor/
