@@ -1,4 +1,4 @@
-package gua
+package gua64
 
 import (
 	"strings"

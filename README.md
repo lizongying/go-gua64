@@ -2,6 +2,10 @@
 
 六十四卦代替base64
 
+## document
+
+[document](https://pkg.go.dev/github.com/lizongying/go-gua64)
+
 ## install
 
 ```
@@ -19,9 +23,9 @@ import (
 )
 
 func main() {
-	gua64 := gua.Gua64{}
-	gua64.New()
-	fmt.Println(gua64.Encode("hello，世界"))
-	fmt.Println(gua64.Decode("䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒☯"))
+	g := gua64.Gua64{}
+	g.New()
+	fmt.Println(g.Encode("hello，世界"))
+	fmt.Println(g.Decode("䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒☯"))
 }
 ```
