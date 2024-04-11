@@ -11,6 +11,19 @@
 * [php-gua64](https://github.com/lizongying/php-gua64)
 * [pygua64](https://github.com/lizongying/pygua64)
 
+## usage
+
+* -e encode
+    ```shell
+    ./gua64_darwin_arm64 -e 123   
+    # output: ䷽䷺䷎䷼
+    ```
+* -d decode
+    ```shell
+    ./gua64_darwin_arm64 -d ䷽䷺䷎䷼   
+    # output: 123
+    ```
+
 ## document
 
 [document](https://pkg.go.dev/github.com/lizongying/go-gua64)
