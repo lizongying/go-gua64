@@ -14,6 +14,3 @@ WORKDIR /app
 COPY --from=builder  /app/releases/gua64 .
 
 RUN chmod +x ./gua64
-
-ENTRYPOINT ["./gua64"]
-CMD ["--port", "8000"]
