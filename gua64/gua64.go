@@ -76,6 +76,9 @@ func (g *gua64) Decode(in string) (out []byte) {
 	var encoded []byte
 	outLen := len(b)
 	for i := 0; i < outLen; i += 4 {
+		if i+4 > len(b) {
+			panic("Decoding Error")
+		}
 		encoded = append(encoded, (b[i]&0x3f)<<2|(b[i+1]>>4&0x3))
 		two := (b[i+1]&0xf)<<4 | (b[i+2] >> 2 & 0xf)
 		if two != 0 {
