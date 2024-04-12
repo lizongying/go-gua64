@@ -9,5 +9,5 @@ import (
 func main() {
 	g := gua64.NewGua64()
 	fmt.Println(g.Encode([]byte(`hello，世界`)))
-	fmt.Println(string(g.Decode(`䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒☯`)))
+	fmt.Println(string(g.Decode(`䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒〇`)))
 }
