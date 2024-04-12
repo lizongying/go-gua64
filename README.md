@@ -1,7 +1,7 @@
 # 六十四卦
 
 六十四卦编码，golang实现。
-如：“hello，世界”会编码为“䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒☯”。
+如：“hello，世界”会编码为“䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒〇”。
 
 [go-gua64](https://github.com/lizongying/go-gua64)
 
@@ -66,6 +66,6 @@ import (
 func main() {
 	g := gua64.NewGua64()
 	fmt.Println(g.Encode([]byte(`hello，世界`)))
-	fmt.Println(string(g.Decode(`䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒☯`)))
+	fmt.Println(string(g.Decode(`䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒〇`)))
 }
 ```
