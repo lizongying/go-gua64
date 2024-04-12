@@ -8,6 +8,7 @@
 ## others
 
 * [js-gua64](https://github.com/lizongying/js-gua64)
+* [java-gua64](https://github.com/lizongying/java-gua64)
 * [php-gua64](https://github.com/lizongying/php-gua64)
 * [pygua64](https://github.com/lizongying/pygua64)
 
