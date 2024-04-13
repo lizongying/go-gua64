@@ -85,7 +85,7 @@ func (g *gua64) Decode(in string) (out []byte) {
 			two := (b[i+1]&0xf)<<4 | (b[i+2] >> 2 & 0xf)
 			encoded = append(encoded, two)
 		}
-		if b[i+2] != math.MaxUint8 {
+		if b[i+3] != math.MaxUint8 {
 			three := (b[i+2]&0x3)<<6 | (b[i+3] & 0x3f)
 			encoded = append(encoded, three)
 		}
