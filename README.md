@@ -1,16 +1,17 @@
-# 六十四卦
+# 六十四卦编码
 
 六十四卦编码，golang实现。
 如：“hello，世界”会编码为“䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒〇”。
 
 [go-gua64](https://github.com/lizongying/go-gua64)
 
-## others
+## all language
 
-* [js-gua64](https://github.com/lizongying/js-gua64)
-* [java-gua64](https://github.com/lizongying/java-gua64)
+* [golang](https://github.com/lizongying/go-gua64)
+* [js](https://github.com/lizongying/js-gua64)
+* [java](https://github.com/lizongying/java-gua64)
 * [php-gua64](https://github.com/lizongying/php-gua64)
-* [pygua64](https://github.com/lizongying/pygua64)
+* [python](https://github.com/lizongying/pygua64)
 
 ## usage
 
