@@ -1,6 +1,7 @@
 package gua64
 
 import (
+	"math"
 	"strings"
 )
 
@@ -71,7 +72,7 @@ func (g *gua64) Decode(in string) (out []byte) {
 			b = append(b, v)
 			continue
 		}
-		b = append(b, 0)
+		b = append(b, math.MaxUint8)
 	}
 	var encoded []byte
 	outLen := len(b)
@@ -80,12 +81,12 @@ func (g *gua64) Decode(in string) (out []byte) {
 			panic("Decoding Error")
 		}
 		encoded = append(encoded, (b[i]&0x3f)<<2|(b[i+1]>>4&0x3))
-		two := (b[i+1]&0xf)<<4 | (b[i+2] >> 2 & 0xf)
-		if two != 0 {
+		if b[i+2] != math.MaxUint8 {
+			two := (b[i+1]&0xf)<<4 | (b[i+2] >> 2 & 0xf)
 			encoded = append(encoded, two)
 		}
-		three := (b[i+2]&0x3)<<6 | (b[i+3] & 0x3f)
-		if three != 0 {
+		if b[i+2] != math.MaxUint8 {
+			three := (b[i+2]&0x3)<<6 | (b[i+3] & 0x3f)
 			encoded = append(encoded, three)
 		}
 	}

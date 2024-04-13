@@ -14,15 +14,26 @@
 
 ## usage
 
-* -e encode
+* -e Encode string
     ```shell
     ./gua64_darwin_arm64 -e 123   
     # output: ䷽䷺䷎䷼
     ```
-* -d decode
+* -d Decode string
     ```shell
     ./gua64_darwin_arm64 -d ䷽䷺䷎䷼   
     # output: 123
+    ```
+* -o Output file
+    ```shell
+    ./gua64_darwin_arm64 -e 123 -o encode.txt   
+    ```
+  
+* -f Input is a file
+    ```shell
+    ./gua64_darwin_arm64 -f -d encode.txt -o decode.txt  
+  
+    ./gua64_darwin_arm64 -f -d decode.txt -o encode.txt    
     ```
 
 ## document
