@@ -25,6 +25,11 @@
     ./gua64_darwin_arm64 -d ䷽䷺䷎䷼   
     # output: 123
     ```
+* -v Verify string
+    ```shell
+    ./gua64_darwin_arm64 -v ䷽䷺䷎䷼   
+    # output: true
+    ```
 * -o Output file
     ```shell
     ./gua64_darwin_arm64 -e 123 -o encode.txt   
@@ -80,5 +85,6 @@ func main() {
 	g := gua64.NewGua64()
 	fmt.Println(g.Encode([]byte(`hello，世界`)))
 	fmt.Println(string(g.Decode(`䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒〇`)))
+	fmt.Println(g.Verify(`䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒〇`))
 }
 ```

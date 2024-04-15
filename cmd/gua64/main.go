@@ -12,22 +12,24 @@ import (
 func main() {
 	ePtr := flag.String("e", "", "Encode String")
 	dPtr := flag.String("d", "", "Decode String")
+	vPtr := flag.String("v", "", "Verify String")
 	fPtr := flag.Bool("f", false, "Input Is A File")
 	oPtr := flag.String("o", "", "Output File")
 
 	flag.Parse()
 	e := *ePtr
 	d := *dPtr
+	v := *vPtr
 	f := *fPtr
 	o := *oPtr
 
-	if e != "" && d != "" {
-		fmt.Println("Error: Please provide only one of -e or -d flags")
+	if e != "" && d != "" && v != "" {
+		fmt.Println("Error: Please provide only one of -e or -d or -v flags")
 		os.Exit(1)
 	}
 
-	if e == "" && d == "" {
-		fmt.Println("Error: Please provide either -e or -d flag")
+	if e == "" && d == "" && v == "" {
+		fmt.Println("Error: Please provide either -e or -d or -v flag")
 		os.Exit(1)
 	}
 
@@ -55,5 +57,13 @@ func main() {
 		} else {
 			fmt.Println(string(r))
 		}
+	}
+	if v != "" {
+		if f {
+			in, _ := os.ReadFile(e + d)
+			d = string(bytes.TrimSpace(in))
+		}
+		r := g.Verify(d)
+		fmt.Println(r)
 	}
 }

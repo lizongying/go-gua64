@@ -10,4 +10,5 @@ func main() {
 	g := gua64.NewGua64()
 	fmt.Println(g.Encode([]byte(`hello，世界`)))
 	fmt.Println(string(g.Decode(`䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒〇`)))
+	fmt.Println(g.Verify(`䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒〇`))
 }

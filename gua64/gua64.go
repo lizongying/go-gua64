@@ -2,6 +2,7 @@ package gua64
 
 import (
 	"math"
+	"slices"
 	"strings"
 )
 
@@ -17,6 +18,7 @@ const gua = "䷁䷖䷇䷓䷏䷢䷬䷋" +
 type Gua64 interface {
 	Encode(in []byte) (out string)
 	Decode(in string) (out []byte)
+	Verify(in string) (out bool)
 }
 type gua64 struct {
 	list []string
@@ -91,4 +93,15 @@ func (g *gua64) Decode(in string) (out []byte) {
 		}
 	}
 	return encoded
+}
+
+func (g *gua64) Verify(str string) bool {
+	list := strings.Split(gua, "")
+	list = append(list, "〇")
+	for _, i := range str {
+		if !slices.Contains(list, string(i)) {
+			return false
+		}
+	}
+	return true
 }

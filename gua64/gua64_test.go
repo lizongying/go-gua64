@@ -14,4 +14,8 @@ func TestGua64(t *testing.T) {
 	t.Log(g.Encode([]byte("hello，世界")))
 	t.Log(string(g.Decode("")))
 	t.Log(string(g.Decode("䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒〇")))
+
+	t.Log(g.Verify(""))
+	t.Log(g.Verify("䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒〇"))
+	t.Log(g.Verify("䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒1〇"))
 }
