@@ -5,74 +5,75 @@
 
 [go-gua64](https://github.com/lizongying/go-gua64)
 
-## all language
+## All language
 
 * [golang](https://github.com/lizongying/go-gua64)
 * [js](https://github.com/lizongying/js-gua64)
 * [java](https://github.com/lizongying/java-gua64)
-* [php-gua64](https://github.com/lizongying/php-gua64)
+* [php](https://github.com/lizongying/php-gua64)
 * [python](https://github.com/lizongying/pygua64)
+* [c#](https://github.com/lizongying/dotnet-gua64)
 
-## usage
+## Download
 
-* -e Encode string
+[releases](https://github.com/lizongying/go-gua64/releases/latest)
+
+## Usage
+
+* -e Input the string to be encoded
     ```shell
     ./gua64_darwin_arm64 -e 123   
     # output: ䷽䷺䷎䷼
     ```
-* -d Decode string
+* -d Input the string to be decoded
     ```shell
     ./gua64_darwin_arm64 -d ䷽䷺䷎䷼   
     # output: 123
     ```
-* -v Verify string
+* -v Input the string and judge whether it is gua64
     ```shell
     ./gua64_darwin_arm64 -v ䷽䷺䷎䷼   
     # output: true
     ```
-* -o Output file
+* -o Specify the path of the output file
     ```shell
     ./gua64_darwin_arm64 -e 123 -o encode.txt   
     ```
-  
-* -f Input is a file
+
+* -f Indicate whether the input is a file
     ```shell
     ./gua64_darwin_arm64 -f -d encode.txt -o decode.txt  
   
     ./gua64_darwin_arm64 -f -d decode.txt -o encode.txt    
     ```
 
-## document
-
-[document](https://pkg.go.dev/github.com/lizongying/go-gua64)
-
-## download
-
-[releases](https://github.com/lizongying/go-gua64/releases/latest)
-
-## image
-
-[ghcr.io](https://github.com/lizongying/go-gua64/pkgs/container/go-gua64)
-
-[hub.docker.com](https://hub.docker.com/r/lizongying/go-gua64)
-
-## build
+## Build
 
 ```shell
 make
 ```
 
-## install
+## Docker image
+
+[ghcr.io](https://github.com/lizongying/go-gua64/pkgs/container/go-gua64)
+
+[hub.docker.com](https://hub.docker.com/r/lizongying/go-gua64)
+
+## Some sample in Golang
+
+[sample](./sample)
+
+### Document
+
+[document](https://pkg.go.dev/github.com/lizongying/go-gua64)
+
+### Install
 
 ```
 go get github.com/lizongying/go-gua64
 ```
 
-## sample
-
-[sample](./sample)
-
-```
+```go
 package main
 
 import (
