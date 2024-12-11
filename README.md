@@ -18,6 +18,10 @@
 
 [releases](https://github.com/lizongying/go-gua64/releases/latest)
 
+## History
+
+[History](./HISTORY.md)
+
 ## Usage
 
 * -e Input the string to be encoded
