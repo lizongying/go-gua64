@@ -25,19 +25,25 @@ jobs:
         with:
           go-version: '1.21'
 
+      - name: Set Version Name
+        id: set_version_name
+        run: |
+          VERSION_WITHOUT_V=$(echo '${{ github.ref_name }}' | sed 's/^v//')
+          echo "version_name=${VERSION_WITHOUT_V}" >> $GITHUB_ENV
+
       - name: Build
         run: |
           go vet ./cmd/gua64
 
-          GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags "-s -w" -o ./releases/gua64_linux_amd64 ./cmd/gua64
+          GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags "-s -w -X 'main.version=${{ env.version_name }}'" -o ./releases/gua64_linux_amd64 ./cmd/gua64
 
-          GOOS=linux GOARCH=arm64 CGO_ENABLED=0 go build -ldflags "-s -w" -o ./releases/gua64_linux_arm64 ./cmd/gua64
+          GOOS=linux GOARCH=arm64 CGO_ENABLED=0 go build -ldflags "-s -w -X 'main.version=${{ env.version_name }}'" -o ./releases/gua64_linux_arm64 ./cmd/gua64
 
-          GOOS=darwin GOARCH=amd64 CGO_ENABLED=0 go build -ldflags "-s -w" -o ./releases/gua64_darwin_amd64 ./cmd/gua64
+          GOOS=darwin GOARCH=amd64 CGO_ENABLED=0 go build -ldflags "-s -w -X 'main.version=${{ env.version_name }}'" -o ./releases/gua64_darwin_amd64 ./cmd/gua64
 
-          GOOS=darwin GOARCH=arm64 CGO_ENABLED=0 go build -ldflags "-s -w" -o ./releases/gua64_darwin_arm64 ./cmd/gua64
+          GOOS=darwin GOARCH=arm64 CGO_ENABLED=0 go build -ldflags "-s -w -X 'main.version=${{ env.version_name }}'" -o ./releases/gua64_darwin_arm64 ./cmd/gua64
 
-          GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -ldflags "-s -w" -o ./releases/gua64_windows_amd64.exe ./cmd/gua64
+          GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -ldflags "-s -w -X 'main.version=${{ env.version_name }}'" -o ./releases/gua64_windows_amd64.exe ./cmd/gua64
 
       - name: Get History
         id: get_history
@@ -65,7 +71,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./releases/gua64_linux_amd64
-          asset_name: gua64_linux_amd64-${{ github.ref_name }}
+          asset_name: gua64_linux_amd64-${{ env.version_name }}
           asset_content_type: application/octet-stream
 
       - name: Upload Release Asset linux_arm64
@@ -75,7 +81,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./releases/gua64_linux_arm64
-          asset_name: gua64_linux_arm64-${{ github.ref_name }}
+          asset_name: gua64_linux_arm64-${{ env.version_name }}
           asset_content_type: application/octet-stream
 
       - name: Upload Release Asset darwin_amd64
@@ -85,7 +91,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./releases/gua64_darwin_amd64
-          asset_name: gua64_darwin_amd64-${{ github.ref_name }}
+          asset_name: gua64_darwin_amd64-${{ env.version_name }}
           asset_content_type: application/octet-stream
 
       - name: Upload Release Asset darwin_arm64
@@ -95,7 +101,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./releases/gua64_darwin_arm64
-          asset_name: gua64_darwin_arm64-${{ github.ref_name }}
+          asset_name: gua64_darwin_arm64-${{ env.version_name }}
           asset_content_type: application/octet-stream
 
       - name: Upload Release Asset windows_amd64
@@ -105,7 +111,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./releases/gua64_windows_amd64.exe
-          asset_name: gua64_windows_amd64-${{ github.ref_name }}.exe
+          asset_name: gua64_windows_amd64-${{ env.version_name }}.exe
           asset_content_type: application/octet-stream
 
 

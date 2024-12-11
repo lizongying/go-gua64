@@ -8,6 +8,8 @@ import (
 	"os"
 )
 
+var version string
+
 // go run cmd/gua64/main.go
 func main() {
 	ePtr := flag.String("e", "", "Input the string to be encoded")
@@ -16,6 +18,7 @@ func main() {
 	fPtr := flag.Bool("f", false, "Indicate whether the input is a file")
 	oPtr := flag.String("o", "", "Specify the path of the output file")
 	helpPtr := flag.Bool("h", false, "Show help information")
+	versionPtr := flag.Bool("version", false, "Show version information.")
 
 	flag.Parse()
 	e := *ePtr
@@ -29,9 +32,9 @@ func main() {
 		os.Exit(0)
 	}
 
-	if e == "" && d == "" && v == "" {
-		fmt.Println("Error: Please provide either -e or -d or -v flag")
-		os.Exit(1)
+	if *versionPtr {
+		fmt.Printf("v%s\n", version)
+		os.Exit(0)
 	}
 
 	if e == "" && d == "" && v == "" {
