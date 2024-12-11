@@ -26,29 +26,39 @@
 
 * -e Input the string to be encoded
     ```shell
-    ./gua64_darwin_arm64 -e 123   
+    gua64 -e 123   
     # output: ䷽䷺䷎䷼
     ```
 * -d Input the string to be decoded
     ```shell
-    ./gua64_darwin_arm64 -d ䷽䷺䷎䷼   
+    gua64 -d ䷽䷺䷎䷼   
     # output: 123
     ```
 * -v Input the string and judge whether it is gua64
     ```shell
-    ./gua64_darwin_arm64 -v ䷽䷺䷎䷼   
+    gua64 -v ䷽䷺䷎䷼   
     # output: true
     ```
 * -o Specify the path of the output file
     ```shell
-    ./gua64_darwin_arm64 -e 123 -o encode.txt   
+    gua64 -e 123 -o encode.txt   
     ```
 
 * -f Indicate whether the input is a file
     ```shell
-    ./gua64_darwin_arm64 -f -d encode.txt -o decode.txt  
+    gua64 -f -d encode.txt -o decode.txt  
   
-    ./gua64_darwin_arm64 -f -d decode.txt -o encode.txt    
+    gua64 -f -d decode.txt -o encode.txt    
+    ```
+
+* -h Show help information
+    ```shell
+    gua64 -h 
+    ```
+
+* -version Show version information
+    ```shell
+    gua64 -version
     ```
 
 ## Build
