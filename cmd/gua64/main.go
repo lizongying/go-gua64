@@ -18,7 +18,7 @@ func main() {
 	fPtr := flag.Bool("f", false, "Indicate whether the input is a file")
 	oPtr := flag.String("o", "", "Specify the path of the output file")
 	helpPtr := flag.Bool("h", false, "Show help information")
-	versionPtr := flag.Bool("version", false, "Show version information.")
+	versionPtr := flag.Bool("version", false, "Show version information")
 
 	flag.Parse()
 	e := *ePtr
@@ -61,24 +61,30 @@ func main() {
 	if e != "" {
 		in := []byte(e)
 		if f {
-			in, _ = os.ReadFile(e + d)
+			in0, err := os.ReadFile(e)
+			if err != nil {
+				fmt.Printf("Error: Failed to read file '%s'. %v\n", e, err)
+				os.Exit(1)
+			}
+			in = in0
 		}
 		r := g.Encode(in)
 		if o != "" {
 			err := os.WriteFile(o, []byte(r), 0644)
 			if err != nil {
-				fmt.Printf("Error: Failed to write to file %s. %v\n", o, err)
+				fmt.Printf("Error: Failed to write to file '%s'. %v\n", o, err)
 				os.Exit(1)
 			}
+			fmt.Printf("Success: Saved to the file '%s'\n", o)
 		} else {
 			fmt.Println(r)
 		}
 	}
 	if d != "" {
 		if f {
-			in, err := os.ReadFile(e + d)
+			in, err := os.ReadFile(d)
 			if err != nil {
-				fmt.Printf("Error: Failed to read file %s. %v\n", o, err)
+				fmt.Printf("Error: Failed to read file '%s'. %v\n", d, err)
 				os.Exit(1)
 			}
 			d = string(bytes.TrimSpace(in))
@@ -87,23 +93,24 @@ func main() {
 		if o != "" {
 			err := os.WriteFile(o, r, 0644)
 			if err != nil {
-				fmt.Printf("Error: Failed to write to file %s. %v\n", o, err)
+				fmt.Printf("Error: Failed to write to file '%s'. %v\n", o, err)
 				os.Exit(1)
 			}
+			fmt.Printf("Success: Saved to the file '%s'\n", o)
 		} else {
 			fmt.Println(string(r))
 		}
 	}
 	if v != "" {
 		if f {
-			in, err := os.ReadFile(e + d)
+			in, err := os.ReadFile(v)
 			if err != nil {
-				fmt.Printf("Error: Failed to read file %s. %v\n", o, err)
+				fmt.Printf("Error: Failed to read file '%s'. %v\n", v, err)
 				os.Exit(1)
 			}
-			d = string(bytes.TrimSpace(in))
+			v = string(bytes.TrimSpace(in))
 		}
-		r := g.Verify(d)
+		r := g.Verify(v)
 		fmt.Println(r)
 	}
 }
