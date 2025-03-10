@@ -1,9 +1,12 @@
-# 六十四卦编码
+# 六十四卦編碼
 
-六十四卦编码，golang实现。
-如：“hello，世界”会编码为“䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒〇”。
+六十四卦編碼，golang實現
+
+如：“hello，世界”会編碼為“䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒〇”
 
 [go-gua64](https://github.com/lizongying/go-gua64)
+
+[demo](https://lizongying.github.io/js-gua64/)
 
 ## All language
 
