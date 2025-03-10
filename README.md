@@ -7,6 +7,7 @@
 
 ## All language
 
+* [rust](https://github.com/lizongying/rs-gua64)
 * [golang](https://github.com/lizongying/go-gua64)
 * [js](https://github.com/lizongying/js-gua64)
 * [java](https://github.com/lizongying/java-gua64)
