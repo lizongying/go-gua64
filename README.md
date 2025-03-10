@@ -8,6 +8,8 @@
 
 [demo](https://lizongying.github.io/js-gua64/)
 
+![](screenshots/img.png)
+
 ## All language
 
 * [rust](https://github.com/lizongying/rs-gua64)
@@ -107,3 +109,7 @@ func main() {
 	fmt.Println(g.Verify(`䷯䷬䷿䷶䷸䷬䷀䷌䷌䷎䷼䷲䷰䷳䷸䷘䷔䷭䷒〇`))
 }
 ```
+
+## 讚賞
+
+![image](./screenshots/appreciate.png)

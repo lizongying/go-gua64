@@ -82,7 +82,7 @@ func (g *gua64) Decode(in string) (out []byte) {
 		if i+4 > len(b) {
 			panic("Decoding Error")
 		}
-		encoded = append(encoded, (b[i])<<2|(b[i+1]>>4))
+		encoded = append(encoded, (b[i]<<2)|(b[i+1]>>4))
 		if b[i+2] != math.MaxUint8 {
 			two := (b[i+1] << 4) | (b[i+2] >> 2)
 			encoded = append(encoded, two)
